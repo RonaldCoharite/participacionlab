@@ -1,0 +1,220 @@
+---
+title: "Análisis de la Participación Laboral Femenina en Bolivia mediante Métodos de Minería de Datos"
+runninghead: "Uthor \emph{et al}."
+author:
+- name: "Ronald Cruz Coharite Mamani"
+  num: "1"
+address:
+- num: 1
+  org: "UCB Sede La Paz"
+corrauth: "Your Name, Your Address"
+email: "ronald.coharite@ucb.edu.bo"
+abstract: "La participación laboral femenina en Bolivia ha sido un tema de interés tanto para académicos como para formuladores de políticas públicas. A pesar de los avances en la igualdad de género, las mujeres en Bolivia enfrentan barreras significativas para integrarse plenamente en el mercado laboral como la falta de acceso a educación de calidad, responsabilidades familiares y la prevalencia de empleos informales. Este estudio busca analizar los factores que influyen en la participación laboral de las mujeres en Bolivia, utilizando métodos de minería de datos y técnicas. La minería de datos permite extraer información procesable de grandes volúmenes de datos, lo que resulta especialmente útil en el análisis de fenómenos sociales complejos como la participación laboral femenina."
+keywords: "participación laboral femenina, minería de datos, Bolivia, género, mercado laboral"
+classoption:
+  - Royal
+  - times
+bibliography: referencias.bib
+bibliographystyle: sageh
+output:
+  rticles::sage_article:
+    keep_tex: yes
+---
+
+# 1. Introducción
+
+La participación laboral femenina en Bolivia ha sido un tema de interés tanto para académicos como para formuladores de políticas públicas. A pesar de los avances en la igualdad de género, las mujeres en Bolivia enfrentan barreras significativas para integrarse plenamente en el mercado laboral como la falta de acceso a educación de calidad, responsabilidades familiares y la prevalencia de empleos informales. Este estudio busca analizar los factores que influyen en la participación laboral de las mujeres en Bolivia, utilizando métodos de minería de datos y técnicas.
+
+La minería de datos, como disciplina, permite extraer información procesable de grandes volúmenes de datos, lo que resulta especialmente útil en el análisis de fenómenos sociales complejos como la participación laboral femenina. En este trabajo, se aplicarán técnicas de minería de texto y métodos de asociación para identificar patrones y relaciones ocultas en los datos.
+
+El objetivo principal de este trabajo es proporcionar una comprensión más profunda de los determinantes de la participación laboral femenina en Bolivia, utilizando un enfoque que contemple la minería de datos, lo que permitirá identificar los factores clave que influyen en la decisión de las mujeres de participar en el mercado laboral.
+
+# 2. Objetivo
+
+Analizar los factores que influyen en la participación laboral femenina en Bolivia.
+
+# 3. Motivación
+
+La participación laboral es un indicador clave del desarrollo económico y social de un país. En Bolivia, a pesar de los avances en la igualdad de género, las mujeres siguen enfrentando barreras significativas para integrarse plenamente en el mercado laboral. Estas barreras incluyen la falta de acceso a educación de calidad, responsabilidades familiares y la prevalencia de empleos informales. Comprender los factores que influyen en la participación laboral femenina es esencial para diseñar políticas públicas efectivas que promuevan la igualdad de género y el desarrollo económico.
+
+Además, el uso de técnicas de minería de datos en este contexto es particularmente relevante debido a la disponibilidad de grandes volúmenes de datos relacionados con la participación laboral femenina. Estas técnicas permiten analizar datos no estructurados.
+
+Este estudio se justifica por la necesidad de abordar las desigualdades de género en el mercado laboral boliviano y por la oportunidad de utilizar técnicas innovadoras de minería de datos para complementar los análisis tradicionales. Los resultados de este trabajo podrían ser utilizados por formuladores de políticas públicas, organizaciones no gubernamentales y académicos para diseñar intervenciones más efectivas que promuevan la participación laboral femenina y reduzcan las brechas de género en Bolivia.
+
+# 4. Marco teórico
+
+## 4.1 Participación Laboral Femenina en Bolivia
+
+La participación de las mujeres en el mercado laboral ha sido objeto de extenso estudio en la economía laboral, impulsada por la necesidad de comprender los factores que influyen en su decisión de ofrecer su tiempo en el mercado versus dedicarlo a actividades no remuneradas en el hogar o al ocio. El marco teórico fundamental para analizar esta decisión se basa en la **teoría neoclásica de la oferta laboral**.
+
+Según este enfoque, un individuo (en este caso, una mujer) decide participar en el mercado laboral comparando la utilidad que obtiene del ingreso ganado (que permite el consumo de bienes y servicios) con la utilidad derivada de dedicar su tiempo a actividades no laborales (como el trabajo doméstico, el cuidado de los hijos, la educación o el ocio). La decisión de participar (pasar de no ofrecer tiempo en el mercado a ofrecer al menos una hora) depende de si el salario de reserva de la mujer (el salario mínimo que requeriría para estar dispuesta a trabajar) es menor o igual al salario de mercado que podría percibir.
+
+Diversos factores socioeconómicos y demográficos influyen en este salario de reserva y en el salario de mercado potencial, afectando así la probabilidad de participación:
+
+-   **Capital Humano (Educación y Experiencia):** La teoría del capital humano postula que la educación y la experiencia laboral incrementan la productividad de un trabajador y, por consiguiente, su salario potencial en el mercado (Mincer, 1974). Un mayor salario de mercado esperado aumenta el costo de oportunidad de no trabajar, incentivando así la participación laboral. Se espera que un mayor nivel educativo (ed) y una mayor experiencia potencial (exp) estén positivamente asociados con la probabilidad de participar. La inclusión de la experiencia al cuadrado (exp2) permite capturar posibles rendimientos decrecientes de la experiencia sobre la productividad y el salario, lo que podría traducirse en una relación no lineal con la participación.
+
+-   **Maternidad y Responsabilidades Familiares:** La presencia de hijos, especialmente los más pequeños, impone una mayor demanda de tiempo para actividades de cuidado no remunerado dentro del hogar. Este aumento en el valor del tiempo dedicado al hogar eleva el salario de reserva de la mujer. La maternidad (madre) es, por lo tanto, un factor que teóricamente se asocia negativamente con la probabilidad de participación laboral, al aumentar el costo de oportunidad de trabajar fuera del hogar y la necesidad de dedicar tiempo al cuidado directo.
+
+-   **Estado Civil:** El estado civil (i.civ) puede influir en la participación a través de varios canales. En un hogar con dos adultos, la decisión de participación de la mujer puede depender del ingreso del otro miembro del hogar; un ingreso elevado de la pareja puede reducir la necesidad económica de que la mujer trabaje (efecto ingreso), disminuyendo su probabilidad de participación. Sin embargo, la presencia de una pareja también podría facilitar el cuidado de los hijos u otras responsabilidades domésticas, reduciendo el salario de reserva y aumentando la participación (efecto sustitución, aunque este es más relevante para la intensidad de horas trabajadas). Estados civiles como separada, divorciada o viuda a menudo implican una mayor necesidad económica individual, lo que podría aumentar la presión para participar en el mercado laboral. La jefatura de hogar (jh), aunque relacionada con el estado civil, también puede reflejar una necesidad económica primaria de generar ingresos para sostener el hogar, lo que tendería a aumentar la participación, aunque también puede estar asociada con estructuras familiares que imponen mayores cargas de responsabilidad no remunerada.
+
+-   **Otros Factores:** Diversos otros factores pueden ser relevantes, como otras fuentes de ingreso no laboral, acceso a servicios de cuidado infantil, normas sociales, condiciones del mercado laboral local, etc., aunque no todos puedan ser capturados por las variables disponibles en una encuesta específica.
+
+La naturaleza binaria de la decisión de participar o no participar hace que los modelos de elección discreta, como el modelo Logit o Probit, sean las herramientas econométricas adecuadas para estimar la probabilidad de participación. Estos modelos permiten cuantificar el impacto marginal de cada variable explicativa sobre la probabilidad de participar, o interpretar este impacto a través del cambio en las probabilidades (Odds Ratios).
+
+# 5. Descripción del Dataset
+
+El análisis cuantitativo de este estudio se basa en microdatos de la **Encuesta de Hogares (EH) del año 2023**, levantada por el Instituto Nacional de Estadística (INE) de Bolivia. La EH es una encuesta continua de propósito múltiple que recopila información detallada sobre las características socioeconómicas, demográficas y laborales de los individuos y hogares en áreas urbanas y rurales del país. Su diseño muestral permite obtener estimaciones representativas a nivel nacional y subnacional.
+
+La base de datos utilizada, denominada eh23p en el entorno de trabajo de RStudio, contiene los registros a nivel persona de la encuesta de 2023. Para el objetivo específico de analizar la participación laboral femenina, se seleccionó una submuestra de esta base de datos. La población objetivo del análisis econométrico se restringió a **mujeres** de entre **24 y 58 años de edad** que residen en **áreas urbanas**. Este filtro se aplicó utilizando las variables s01a_02 (Sexo), area (Área: Urbana/Rural) y s01a_03 (Edad). La restricción al área urbana se realizó considerando la diferencia en las dinámicas del mercado laboral y la informalidad entre áreas urbanas y rurales, como se discute en la metodología del estudio.
+
+Las variables clave de la base de datos eh23p utilizadas en la construcción del primer modelo (Regresión Logística de Participación) incluyen:
+
+-   **s01a_03**: Edad de la persona.
+-   **aestudio**: Años de estudio completados.
+-   **s01a_05**: Relación o parentesco con el jefe/a de hogar.
+-   **s01a_10**: Estado civil o conyugal.
+-   **s02b_07**: Número de hijos nacidos vivos.
+-   Otras variables como s01a_02 (Sexo) y area (Área) fueron utilizadas para la selección de la muestra.
+
+A partir de estas variables originales, se construyeron las variables utilizadas directamente en el modelo econométrico, como la variable dependiente binaria ml (participa/no participa), la experiencia potencial (exp) y su cuadrado (exp2), un indicador binario de jefatura de hogar (jh), y variables categóricas como el estado civil (i.civ) y la maternidad (madre). La muestra final utilizada para la estimación del modelo Logit, después de aplicar los filtros iniciales y remover las observaciones con valores faltantes en las variables relevantes, fue de **7390 mujeres**.
+
+Adicionalmente, como parte del enfoque metodológico que incorpora técnicas de minería de datos, se utilizó un corpus de **4 documentos en formato PDF** relacionados con la participación laboral femenina. Este conjunto de datos cualitativos sirvió como fuente para explorar temas, conceptos y patrones discursivos complementarios a través del análisis de texto y métodos de asociación, como se detalla en la sección de metodología.
+
+# 6. Metodología
+
+La metodología de este estudio integra enfoques cuantitativos y cualitativos para ofrecer una comprensión más completa de los factores que inciden en la participación laboral femenina.
+
+## 6.1 Análisis Exploratorio de Minería de Datos
+
+Como complemento al análisis econométrico, se realizó una exploración de un corpus de 4 documentos en formato PDF relevantes para la temática de la participación laboral femenina. El objetivo de esta etapa fue identificar temas clave, patrones de lenguaje y posibles asociaciones entre conceptos dentro de estos textos, ofreciendo una perspectiva cualitativa y exploratoria.
+
+La metodología de minería de texto aplicada consistió en varios pasos utilizando diversas librerías en R (tm, stringr, SnowballC, syuzhet, arules, pdftools, etc.):
+
+-   **Recopilación y Carga de Datos:** Carga de los archivos PDF a un entorno de procesamiento.
+-   **Extracción de Texto:** Conversión del contenido de los PDFs a texto plano.
+-   **Pre-procesamiento del Texto:** Limpieza del texto para estandarizarlo y prepararlo para el análisis. Esto incluyó convertir a minúsculas, eliminar puntuación, números y espacios en blanco, remover "stop words" (palabras comunes sin significado temático relevante) y aplicar técnicas de stemming o lematización para reducir las palabras a su raíz.
+-   **Representación del Texto:** Creación de una Matriz Término-Documento (Document-Term Matrix - DTM) donde las filas representan los documentos y las columnas los términos (palabras) y las celdas contienen la frecuencia de cada término en cada documento.
+-   **Análisis de Frecuencia:** Cálculo y visualización de los términos más frecuentes en el corpus para identificar conceptos dominantes.
+
+Esta fase exploratoria no busca establecer causalidad ni representatividad estadística a nivel nacional, sino identificar patrones y temas emergentes en la discusión sobre participación laboral femenina que puedan ofrecer insights cualitativos complementarios al análisis cuantitativo.
+
+## 6.2 Modelos probit y logit
+
+### 6.2.1 Preparación de datos y variables
+
+La muestra se restringió a mujeres de áreas urbanas con edades entre 24 y 48 años, utilizando datos de la Encuesta de Hogares 2023 (eh23.RData). Se definieron las siguientes variables para el análisis:
+
+-   **ed**: Años de escolaridad.
+-   **exp y exp2**: Experiencia laboral potencial y su cuadrado, para modelar posibles efectos no lineales.
+-   **jh**: Indicador binario para la jefatura de hogar.
+-   **unida**: Variable binaria que agrupa a mujeres casadas o en convivencia.
+-   **esMadre**: Indicador binario de maternidad.
+-   **indigena**: Variable binaria basada en el idioma aprendido durante la niñez.
+-   **civ_cat**: Variable categórica del estado civil.
+-   **seguro**: Variable categórica para el tipo de seguro de salud.
+
+### 6.2.2 Especificación
+
+El análisis se realizó en dos fases. Primero, se estimaron modelos iniciales (Logit y Probit) que incluían un conjunto amplio de variables, entre ellas esMadre, indigena y seguro. El análisis de los efectos marginales de estos primeros modelos reveló que las variables indigena, esMadre y seguro no eran estadísticamente significativas.
+
+A raíz de este hallazgo, se procedió a estimar un segundo conjunto de modelos más parsimoniosos, excluyendo las variables no significativas para obtener una especificación más precisa.
+
+Se calcularon los efectos marginales (margins) para cada uno de estos modelos finales y se evaluó su bondad de ajuste mediante el pseudo-R² (pR2).
+
+## 6.3. Modelos no paramétricos
+
+Para complementar el análisis econométrico y evaluar la capacidad predictiva de las variables desde una perspectiva de aprendizaje automático, se utilizaron tres métodos de clasificación. El conjunto de datos se dividió en una muestra de entrenamiento (70%) y una de prueba (30%) usando la función createDataPartition de la librería caret.
+
+1.  **Árboles de Decisión:** Se entrenó un modelo con el algoritmo C5.0 (C5.0) utilizando las variables que resultaron significativas en los modelos econométricos refinados.
+2.  **k-Vecinos más Cercanos (KNN):** Se aplicó el algoritmo KNN. Previamente, las variables continuas (ed, exp, exp2) fueron estandarizadas. El número de vecinos (*k*) se calculó como la raíz cuadrada del tamaño de la muestra de entrenamiento.
+3.  **Naive Bayes:** Se entrenó un clasificador Naive Bayes con la función naiveBayes de la librería e1071.
+
+El rendimiento de todos los modelos (logit, probit y los no paramétricos) se evaluó y comparó mediante matrices de confusión, calculadas con la función confusionMatrix, para determinar su precisión, sensibilidad y especificidad.
+
+# 7. Resultados y análisis
+
+## 7.1 Modelos Logit y Probit
+
+Se estimaron modelos logit (m1, m3) y probit (m2, m4) para explicar la participación laboral femenina (variable pea) en función de variables sociodemográficas, incluyendo años de educación (ed), experiencia potencial (exp, exp2), jefatura del hogar (jh), estado civil (civ_cat o unida) y una medida del ingreso laboral del hogar (ynolab).
+
+### Efectos marginales (modelo logit m1)
+
+-   Las mujeres casadas y convivientes tienen menor probabilidad de participar laboralmente (AME: -18.7% y -14.4%, respectivamente).
+-   Las separadas presentan mayor probabilidad de participación (+12.9%), mientras que las divorciadas también lo hacen, aunque con menor significancia.
+-   Cada año adicional de estudio incrementa la probabilidad de participación en 2.45 pp.
+-   Ser jefa de hogar aumenta la probabilidad de participación en 21.4 pp.
+-   El ingreso laboral del hogar (ynolab) tiene un efecto negativo muy pequeño pero significativo.
+
+### Pseudo R²:
+
+-   Logit m1: McFadden R² = 0.122
+-   Probit m2: McFadden R² = 0.122
+
+### Matriz de confusión (logit m1):
+
+-   Accuracy: 70.4%
+-   Sensibilidad: 24.3%
+-   Especificidad: 90.6%
+-   El modelo predice bien a las mujeres que participan, pero tiene limitaciones para identificar correctamente a las que no participan.
+
+## 7.2 Modelos alternativos: unida vs. no unida
+
+Al recodificar el estado civil como variable binaria (unida: casada o conviviente = 1), se estimaron modelos logit m3 y probit m4.
+
+-   La variable unida disminuye la probabilidad de participación en \~19.5 pp.
+-   Se mantiene la importancia de la educación, experiencia y jefatura del hogar.
+
+### Pseudo R²:
+
+-   Logit m3: McFadden R² = 0.116
+-   Probit m4: McFadden R² = 0.118
+
+### Accuracy:
+
+-   m3: 70.2%
+-   m4: 69.9%
+
+## 7.3 Métodos de clasificación no paramétricos
+
+Se compararon los modelos anteriores con métodos más flexibles:
+
+### Árbol de decisión (C5.0):
+
+-   Accuracy: 71.9%
+-   Kappa: 0.258
+-   Balanced Accuracy: 61.6%
+-   Detecta mejor que los anteriores a las no participantes (sensibilidad: 35.3%).
+
+### K-vecinos más cercanos (KNN):
+
+-   Accuracy: 69.8%
+-   Muy baja sensibilidad (2.6%) y Kappa casi nulo.
+-   Desempeño muy pobre para detectar a las no participantes.
+
+### Naive Bayes:
+
+-   Accuracy: 66.9%
+-   Mejor sensibilidad que logit/probit: 55.5%
+-   Balanced Accuracy: 63.7%
+
+# 8. Conclusiones y recomendaciones
+
+Los resultados muestran que la participación laboral femenina en Bolivia está fuertemente influenciada por factores estructurales como el nivel educativo, la experiencia laboral, la condición de jefatura de hogar y especialmente el estado civil. Las mujeres casadas o convivientes tienden a participar menos en el mercado laboral, mientras que las separadas o divorciadas lo hacen en mayor medida, lo que refleja posibles barreras culturales o responsabilidades domésticas desiguales. Los modelos logit y probit presentan buen ajuste general, aunque con limitaciones para identificar a las no participantes. En contraste, métodos de clasificación como árboles de decisión y Naive Bayes logran mejorar la sensibilidad sin sacrificar precisión, lo que demuestra el valor de incorporar enfoques complementarios para robustecer el análisis y fortalecer la base para políticas inclusivas.
+
+El modelo logit sigue siendo el más interpretable, con buen ajuste y significancia estadística. El uso de árboles de decisión mejora la detección de casos de no participación y es un buen complemento predictivo. Naive Bayes es útil cuando se prioriza sensibilidad (detectar casos de no participación). KNN no resulta adecuado en este contexto.
+
+# 9. Bibliografia
+
+Berniell, L., & Sánchez-Páramo, C. (2021). Perspectivas de género en el mercado laboral en América Latina. Banco Mundial.
+
+Blau, F. D., & Kahn, L. M. (2006). The US Gender Pay Gap in the 1990s: Slowing Convergence. Industrial & Labor Relations Review, 60, 45--66.
+
+Botello, H., & Alba, J. (2015). Penalidad Salarial por Maternidad en América Latina. En Serie Documentos de Trabajo del Banco Interamericano de Desarrollo.
+
+Cadena, P. (2020). Brechas Salariales por Género en Bolivia. Revista Latinoamericana de Estudios del Trabajo, 25(1), 69--90.
+
+Carrasco, R. (2003). Binary Choice with Binary Endogenous Regressors in Panel Data: Estimating the Effect of Fertility on Female Labor Force Participation. Journal of Business & Economic Statistics, 21(2), 273--281.
+
+Piras, C., & Ripani, L. (2005). Penalidad Salarial por Maternidad en Bolivia, Brasil, Ecuador y Perú. Penalidad Salarial por Maternidad en Bolivia.
+
+Sardán, M. (2020). Determinantes de la brecha salarial de género en Bolivia. Revista de Economía del Rosario, 23(1), 95--117.
